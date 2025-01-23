@@ -63,7 +63,44 @@
             "optional": false
           }
         },
-        "relationships": {}
+        "relationships": {
+          "ingredients": {
+            "sourceField": [
+              "id"
+            ],
+            "destField": [
+              "recipeId"
+            ],
+            "destSchema": "ingredient"
+          },
+          "owner": {
+            "sourceField": [
+              "ownerId"
+            ],
+            "destField": [
+              "id"
+            ],
+            "destSchema": "user"
+          },
+          "steps": {
+            "sourceField": [
+              "id"
+            ],
+            "destField": [
+              "recipeId"
+            ],
+            "destSchema": "recipeStep"
+          },
+          "tags": {
+            "sourceField": [
+              "id"
+            ],
+            "destField": [
+              "recipeId"
+            ],
+            "destSchema": "recipeTag"
+          }
+        }
       },
       "recipeStep": {
         "tableName": "recipeStep",

@@ -18,9 +18,9 @@ const recipeSchema = createTableSchema({
     name: { type: "string" },
     description: { type: "string" },
   },
-  relations: {
+  relationships: {
     owner: {
-      sourceField: 'ownerId',
+      sourceField: "ownerId",
       destSchema: userSchema,
       destField: 'id',
     },
@@ -41,7 +41,7 @@ const recipeSchema = createTableSchema({
     },
   },
   primaryKey: ["id"],
-});
+} as const);
 
 const recipeTagSchema = createTableSchema({
   tableName: "recipeTag",
@@ -51,18 +51,18 @@ const recipeTagSchema = createTableSchema({
     recipeId: { type: "string" },
     name: { type: "string" },
   },
-  relations: {
-    owner: {
-      sourceField: 'ownerId',
-      destSchema: userSchema,
-      destField: 'id',
-    },
-    recipe: {
-      sourceField: 'recipeId',
-      destSchema: recipeSchema,
-      destField: 'id',
-    },
-  },
+  // relationships: {
+  //   owner: {
+  //     sourceField: 'ownerId',
+  //     destSchema: userSchema,
+  //     destField: 'id',
+  //   },
+  //   recipe: {
+  //     sourceField: 'recipeId',
+  //     destSchema: recipeSchema,
+  //     destField: 'id',
+  //   },
+  // },
   primaryKey: ["id"],
 });
 
@@ -77,20 +77,20 @@ const ingredientSchema = createTableSchema({
     unit: { type: "string" },
     name: { type: "string" },
   },
-  relations: {
-    recipe: {
-      sourceField: 'recipeId',
-      destSchema: recipeSchema,
-      destField: 'id',
-    },
-    owner: {
-      sourceField: 'ownerId',
-      destSchema: userSchema,
-      destField: 'id',
-    },
-  },
+  // relationships: {
+  //   recipe: {
+  //     sourceField: 'recipeId',
+  //     destSchema: recipeSchema,
+  //     destField: 'id',
+  //   },
+  //   owner: {
+  //     sourceField: 'ownerId',
+  //     destSchema: userSchema,
+  //     destField: 'id',
+  //   },
+  // },
   primaryKey: ["id"],
-});
+} as const);
 
 const recipeStepSchema = createTableSchema({
   tableName: "recipeStep",
@@ -101,20 +101,20 @@ const recipeStepSchema = createTableSchema({
     order: { type: "string" },
     description: { type: "string" },
   },
-  relations: {
-    owner: {
-      sourceField: 'ownerId',
-      destSchema: userSchema,
-      destField: 'id',
-    },
-    recipe: {
-      sourceField: 'recipeId',
-      destSchema: recipeSchema,
-      destField: 'id',
-    },
-  },
+  // relations: {
+  //   owner: {
+  //     sourceField: 'ownerId',
+  //     destSchema: userSchema,
+  //     destField: 'id',
+  //   },
+  //   recipe: {
+  //     sourceField: 'recipeId',
+  //     destSchema: recipeSchema,
+  //     destField: 'id',
+  //   },
+  // },
   primaryKey: ["id"],
-});
+} as const);
 
 export const schema = createSchema({
   version: 1,
