@@ -1,0 +1,141 @@
+{
+  "permissions": {},
+  "schema": {
+    "version": 1,
+    "tables": {
+      "ingredient": {
+        "tableName": "ingredient",
+        "primaryKey": [
+          "id"
+        ],
+        "columns": {
+          "id": {
+            "type": "string",
+            "optional": false
+          },
+          "name": {
+            "type": "string",
+            "optional": false
+          },
+          "order": {
+            "type": "string",
+            "optional": false
+          },
+          "ownerId": {
+            "type": "string",
+            "optional": false
+          },
+          "quantity": {
+            "type": "string",
+            "optional": false
+          },
+          "recipeId": {
+            "type": "string",
+            "optional": false
+          },
+          "unit": {
+            "type": "string",
+            "optional": false
+          }
+        },
+        "relationships": {}
+      },
+      "recipe": {
+        "tableName": "recipe",
+        "primaryKey": [
+          "id"
+        ],
+        "columns": {
+          "description": {
+            "type": "string",
+            "optional": false
+          },
+          "id": {
+            "type": "string",
+            "optional": false
+          },
+          "name": {
+            "type": "string",
+            "optional": false
+          },
+          "ownerId": {
+            "type": "string",
+            "optional": false
+          }
+        },
+        "relationships": {}
+      },
+      "recipeStep": {
+        "tableName": "recipeStep",
+        "primaryKey": [
+          "id"
+        ],
+        "columns": {
+          "description": {
+            "type": "string",
+            "optional": false
+          },
+          "id": {
+            "type": "string",
+            "optional": false
+          },
+          "order": {
+            "type": "string",
+            "optional": false
+          },
+          "ownerId": {
+            "type": "string",
+            "optional": false
+          },
+          "recipeId": {
+            "type": "string",
+            "optional": false
+          }
+        },
+        "relationships": {}
+      },
+      "recipeTag": {
+        "tableName": "recipeTag",
+        "primaryKey": [
+          "id"
+        ],
+        "columns": {
+          "id": {
+            "type": "string",
+            "optional": false
+          },
+          "name": {
+            "type": "string",
+            "optional": false
+          },
+          "ownerId": {
+            "type": "string",
+            "optional": false
+          },
+          "recipeId": {
+            "type": "string",
+            "optional": false
+          }
+        },
+        "relationships": {}
+      },
+      "user": {
+        "tableName": "user",
+        "primaryKey": [
+          "id"
+        ],
+        "columns": {
+          "id": {
+            "type": "string",
+            "optional": false
+          },
+          "username": {
+            "type": "string",
+            "optional": false
+          }
+        },
+        "relationships": {}
+      }
+    }
+  }
+}
