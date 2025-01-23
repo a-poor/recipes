@@ -1,3 +1,4 @@
+import type { Row } from "@rocicorp/zero";
 import { createSchema, createTableSchema, definePermissions } from "@rocicorp/zero";
 
 const userSchema = createTableSchema({
@@ -22,6 +23,21 @@ const recipeSchema = createTableSchema({
       sourceField: 'ownerId',
       destSchema: userSchema,
       destField: 'id',
+    },
+    ingredients: {
+      sourceField: "id",
+      destSchema: () => ingredientSchema,
+      destField: "recipeId",
+    },
+    steps: {
+      sourceField: "id",
+      destSchema: () => recipeStepSchema,
+      destField: "recipeId",
+    },
+    tags: {
+      sourceField: "id",
+      destSchema: () => recipeTagSchema,
+      destField: "recipeId",
     },
   },
   primaryKey: ["id"],
@@ -112,5 +128,10 @@ export const schema = createSchema({
 });
 
 export type Schema = typeof schema;
+export type User = Row<typeof userSchema>;
+export type Recipe = Row<typeof recipeSchema>;
+export type RecipeTag = Row<typeof recipeTagSchema>;
+export type Ingredient = Row<typeof ingredientSchema>;
+export type RecipeStep = Row<typeof recipeStepSchema>;
 
 export const permissions = definePermissions(schema, () => ({}));

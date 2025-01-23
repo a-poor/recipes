@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { ProfileIcon } from "@/components/profile";
 
@@ -11,7 +12,9 @@ export function Navbar() {
       </div>
       <ul className="flex items-center gap-2">
         <li>
-          <Link href="/recipes">Recipes</Link>
+          <Link href="/recipes">
+            Recipes
+          </Link>
         </li>
         <li>
           <Link href="#">
@@ -20,11 +23,18 @@ export function Navbar() {
         </li>
         <li>
           <Link href="#">
+            People
+          </Link>
+        </li>
+        <li>
+          <Link href="#">
             Search
           </Link>
         </li>
       </ul>
-      <ProfileIcon />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ProfileIcon />
+      </Suspense>
     </div>
   );
 }
